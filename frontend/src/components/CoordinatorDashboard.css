@@ -1,0 +1,572 @@
+
+.coordinator-page {
+  --coord-bg: #080d18;
+  --coord-panel: #101827;
+  --coord-text: #edf3ff;
+  --coord-muted: #8b9ab3;
+  --coord-line: rgba(159, 183, 220, 0.14);
+  --coord-teal: #68e0c1;
+  min-height: 100vh;
+  padding: 32px max(24px, calc((100vw - 1200px) / 2));
+  color: var(--coord-text);
+  background: var(--coord-bg);
+}
+
+.coordinator-page * {
+  box-sizing: border-box;
+}
+
+.coordinator-header,
+.coordinator-brand,
+.coord-toolbar,
+.coord-roster-heading,
+.coord-student,
+.coord-student-info,
+.coord-finalize-row {
+  display: flex;
+  align-items: center;
+}
+
+.coordinator-header,
+.coord-toolbar,
+.coord-roster-heading,
+.coord-finalize-row {
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.coordinator-brand {
+  gap: 14px;
+}
+
+.coordinator-logo,
+.coord-avatar {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  font-weight: 800;
+  color: var(--coord-teal);
+  background: rgba(104, 224, 193, 0.08);
+  border: 1px solid rgba(104, 224, 193, 0.2);
+}
+
+.coordinator-logo {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  color: #071711;
+  background: var(--coord-teal);
+}
+
+.coord-eyebrow {
+  margin: 0 0 7px;
+  color: var(--coord-muted);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+}
+
+.coordinator-brand h1 {
+  margin: 0;
+  font-size: 19px;
+  letter-spacing: -0.5px;
+}
+
+.coord-refresh,
+.attendance-button,
+.coord-finalize {
+  min-height: 40px;
+  padding: 0 15px;
+  border: 1px solid var(--coord-line);
+  border-radius: 10px;
+  color: var(--coord-text);
+  background: var(--coord-panel);
+  cursor: pointer;
+  transition: 160ms ease;
+}
+
+.coord-refresh:hover,
+.attendance-button:hover:not(:disabled) {
+  border-color: rgba(104, 224, 193, 0.5);
+}
+
+.coord-refresh:disabled,
+.attendance-button:disabled,
+.coord-finalize:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.coord-welcome {
+  margin: 54px 0 32px;
+}
+
+.coord-welcome h2 {
+  margin: 0;
+  font-size: clamp(27px, 4vw, 39px);
+  letter-spacing: -1.2px;
+}
+
+.coord-welcome > p:last-child {
+  margin: 12px 0 0;
+  color: var(--coord-muted);
+  font-size: 14px;
+}
+
+.coord-toolbar {
+  padding: 18px 20px;
+  border: 1px solid var(--coord-line);
+  border-radius: 15px;
+  background: var(--coord-panel);
+}
+
+.coord-date-field {
+  display: grid;
+  gap: 8px;
+  color: var(--coord-muted);
+  font-size: 12px;
+}
+
+.coord-date-field input {
+  min-height: 40px;
+  padding: 0 12px;
+  border: 1px solid var(--coord-line);
+  border-radius: 9px;
+  color: var(--coord-text);
+  background: #0a1220;
+  color-scheme: dark;
+}
+
+.coord-day-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.coord-day-status strong {
+  text-transform: capitalize;
+}
+
+.coord-status-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #e5b66d;
+}
+
+.coord-status-dot.done {
+  background: var(--coord-teal);
+}
+
+.coord-alert {
+  margin-top: 15px;
+  padding: 13px 15px;
+  border-radius: 10px;
+  font-size: 13px;
+}
+
+.coord-alert.error {
+  color: #ffb5b5;
+  border: 1px solid rgba(255, 112, 112, 0.22);
+  background: rgba(255, 112, 112, 0.07);
+}
+
+.coord-alert.success {
+  color: #9ef1d9;
+  border: 1px solid rgba(104, 224, 193, 0.22);
+  background: rgba(104, 224, 193, 0.07);
+}
+
+.coord-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 18px 0 36px;
+}
+
+.coord-summary article {
+  display: grid;
+  gap: 10px;
+  padding: 20px;
+  border: 1px solid var(--coord-line);
+  border-radius: 14px;
+  background: var(--coord-panel);
+}
+
+.coord-summary article span {
+  color: var(--coord-muted);
+  font-size: 12px;
+}
+
+.coord-summary article strong {
+  font-size: 30px;
+  font-variant-numeric: tabular-nums;
+}
+
+.coord-roster-heading {
+  margin-bottom: 18px;
+}
+
+.coord-roster-heading h2 {
+  margin: 0;
+  font-size: 23px;
+  letter-spacing: -0.6px;
+}
+
+.coord-roster-heading > span {
+  color: var(--coord-muted);
+  font-size: 12px;
+}
+
+.coord-student-list {
+  display: grid;
+  gap: 10px;
+}
+
+.coord-student {
+  justify-content: space-between;
+  gap: 20px;
+  padding: 16px 18px;
+  border: 1px solid var(--coord-line);
+  border-radius: 13px;
+  background: var(--coord-panel);
+}
+
+.coord-student-info {
+  min-width: 0;
+  gap: 12px;
+}
+
+.coord-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+}
+
+.coord-student-info h3 {
+  overflow-wrap: anywhere;
+  margin: 0;
+  font-size: 14px;
+}
+
+.coord-student-info p {
+  margin: 6px 0 0;
+  color: var(--coord-muted);
+  font-size: 11px;
+}
+
+.coord-actions {
+  display: flex;
+  flex-shrink: 0;
+  gap: 8px;
+}
+
+.attendance-button.present.selected {
+  color: #071711;
+  border-color: var(--coord-teal);
+  background: var(--coord-teal);
+}
+
+.attendance-button.absent.selected {
+  color: #fff0f0;
+  border-color: #d97777;
+  background: #8e3e4b;
+}
+
+.coord-empty {
+  padding: 44px 20px;
+  border: 1px dashed var(--coord-line);
+  border-radius: 14px;
+  color: var(--coord-muted);
+  text-align: center;
+}
+
+.coord-finalize-row {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid var(--coord-line);
+  border-radius: 14px;
+  background: var(--coord-panel);
+}
+
+.coord-finalize-row strong {
+  font-size: 14px;
+}
+
+.coord-finalize-row p {
+  margin: 7px 0 0;
+  color: var(--coord-muted);
+  font-size: 12px;
+}
+
+.coord-finalize {
+  flex-shrink: 0;
+  color: #071711;
+  border-color: var(--coord-teal);
+  background: var(--coord-teal);
+  font-weight: 700;
+}
+
+.coord-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 38px;
+  padding-top: 17px;
+  border-top: 1px solid var(--coord-line);
+  color: #75849d;
+  font-size: 10px;
+}
+
+@media (max-width: 650px) {
+  .coordinator-page {
+    padding: 22px 16px;
+  }
+
+  .coordinator-brand h1 {
+    font-size: 16px;
+  }
+
+  .coord-welcome {
+    margin-top: 38px;
+  }
+
+  .coord-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .coord-summary {
+    gap: 8px;
+  }
+
+  .coord-summary article {
+    padding: 13px;
+  }
+
+  .coord-summary article span {
+    font-size: 10px;
+  }
+
+  .coord-summary article strong {
+    font-size: 24px;
+  }
+
+  .coord-student {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .coord-actions {
+    width: 100%;
+  }
+
+  .attendance-button {
+    flex: 1;
+  }
+
+  .coord-finalize-row {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .coord-finalize {
+    width: 100%;
+  }
+}
+
+
+
+/* Student history button */
+.coord-history-button {
+  padding: 9px 15px;
+  border: 1px solid var(--border, #334155);
+  border-radius: 9px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.coord-history-button:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.coord-history-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* History overlay */
+.coord-history-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: rgba(5, 10, 20, 0.78);
+  backdrop-filter: blur(8px);
+}
+
+.coord-history-panel {
+  width: min(680px, 100%);
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  background: #111c2d;
+  color: #f1f5f9;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4);
+}
+
+.coord-history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 22px;
+}
+
+.coord-history-header h2 {
+  margin: 5px 0;
+}
+
+.coord-history-header p {
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+.coord-history-close {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #334155;
+  border-radius: 9px;
+  background: transparent;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.coord-history-summary {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.coord-history-summary article {
+  padding: 15px;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.coord-history-summary span,
+.coord-history-summary strong {
+  display: block;
+}
+
+.coord-history-summary span {
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+.coord-history-summary strong {
+  margin-top: 6px;
+  font-size: 24px;
+}
+
+.coord-history-list {
+  display: grid;
+  gap: 12px;
+}
+
+.coord-history-entry {
+  padding: 16px;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.coord-history-entry-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.coord-history-entry-top p,
+.coord-history-meta {
+  margin-top: 5px;
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+.coord-history-status {
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.coord-history-status.present {
+  background: rgba(22, 163, 106, 0.15);
+  color: #4ade80;
+}
+
+.coord-history-status.absent {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+}
+
+.coord-correction-list {
+  margin-top: 15px;
+  padding-top: 13px;
+  border-top: 1px solid #334155;
+}
+
+.coord-correction-item {
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.04);
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.coord-correction-item p {
+  margin: 5px 0;
+  color: #cbd5e1;
+}
+
+.correction-old {
+  color: #f87171;
+  text-transform: capitalize;
+}
+
+.correction-new {
+  color: #4ade80;
+  text-transform: capitalize;
+}
+
+@media (max-width: 600px) {
+  .coord-history-overlay {
+    padding: 10px;
+  }
+
+  .coord-history-panel {
+    padding: 18px;
+    max-height: 92vh;
+  }
+
+  .coord-history-button {
+    padding: 8px 10px;
+  }
+}
