@@ -4,7 +4,7 @@ import "./App.css";
 import CoordinatorDashboard from "./components/CoordinatorDashboard";
 import AdminDashboard from "./components/adminDashboard";
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
+const API_URL = import.meta.env.VITE_API_URL || "https://marvel-attendance-tracker.onrender.com";
 
 function LoginScreen({ onLogin, onBack }) {
   const [username, setUsername] = useState("");
