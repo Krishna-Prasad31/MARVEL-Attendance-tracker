@@ -1,6 +1,6 @@
 
 import { useCallback, useEffect, useMemo, useState } from "react";
-import "./AdminDashboard.css";
+import "./adminDashboard.css";
 
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
 
