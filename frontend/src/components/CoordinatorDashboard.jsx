@@ -2,7 +2,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import "./CoordinatorDashboard.css";
 
-const API_URL = import.meta.env.VITE_API_URL || "https://marvel-attendance-tracker.onrender.com";
+const API_URL = "";
 
 function todayInIndia() {
   const parts = new Intl.DateTimeFormat("en-GB", {

@@ -2,7 +2,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import "./adminDashboard.css";
 
-const API_URL = import.meta.env.VITE_API_URL || "https://marvel-attendance-tracker.onrender.com";
+const API_URL = "";
 
 const DOMAIN_OPTIONS = [
   "Artificial Intelligence and Machine Learning (AI-ML)",
